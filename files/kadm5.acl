@@ -1,0 +1,4 @@
+# cat /var/kerberos/krb5kdc/kadm5.acl
+*/admin@EDT.ORG *
+ecanet@EDT.ORG *
+superuser@EDT.ORG *
