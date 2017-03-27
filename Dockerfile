@@ -10,7 +10,7 @@ COPY scripts /scripts/
 COPY files /opt/docker
 #FOR TAKE hosts from ldap
 RUN cp -r /opt/docker/ns* /etc
-RUN /usr/sbin/nslcd/
+RUN /usr/sbin/nslcd
 #CPING FILES TO DESTINY DIRECTORIS
 RUN cp -f /opt/docker/kr5.conf /etc/
 #FIRSTLY DO KDB5_UTIL!!!
