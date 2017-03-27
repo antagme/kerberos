@@ -2,7 +2,7 @@ FROM fedora
 MAINTAINER "Pedro Romero Aguado" <pedroromeroaguado@gmail.com> 
 
 #installs
-RUN dnf install -y krb5-server krb5-libs krb5-workstation nss-pam-ldapd ; exit 0
+RUN dnf install -y krb5-server nss-pam-ldapd ; exit 0
 # directoris
 RUN mkdir /opt/docker
 #Copy github to dockerhub build
