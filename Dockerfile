@@ -12,11 +12,11 @@ COPY files /opt/docker
 RUN cp -r /opt/docker/ns* /etc
 RUN /usr/sbin/nslcd
 #CPING FILES TO DESTINY DIRECTORIS
-RUN cp -f /opt/docker/kr5.conf /etc/
+RUN cp -f /opt/docker/krb5.conf /etc/
 #FIRSTLY DO KDB5_UTIL!!!
 RUN bash /scripts/kdb5_init.sh
 #CONTINUE COPYING
-RUN cp -f /opt/docker/kr5.conf /var/kerberos/krb5kdc/
+RUN cp -f /opt/docker/kdc.conf /var/kerberos/krb5kdc/
 RUN cp -f /opt/docker/kadm5.acl /var/kerberos/krb5kdc/
 #START DEMONS
 #RUN /usr/sbin/krb5kdc && /usr/sbin/kadmind
