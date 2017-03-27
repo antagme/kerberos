@@ -24,5 +24,5 @@ RUN cp -f /opt/docker/kadm5.acl /var/kerberos/krb5kdc/
 #COPY configs /etc/
 #make executable and execute
 #VOLUME ["/data"] 
-ENTRYPOINT /usr/sbin/krb5kdc & /usr/sbin/kadmind & /bin/bash 
+ENTRYPOINT /usr/sbin/krb5kdc & /usr/sbin/kadmind & /bin/bash & bash /script/local_admin.sh
 EXPOSE 25 143 587 993 4190 8001 8002 9001 389
