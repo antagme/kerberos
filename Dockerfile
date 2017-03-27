@@ -16,17 +16,20 @@ RUN cp -f /opt/docker/krb5.conf /etc/
 #RUN chown root:root /etc/krb5.conf
 #RUN chmod 644 /etc/krb5.conf 
 #FIRSTLY DO KDB5_UTIL!!!
-RUN bash /scripts/kdb5_init.sh
+#RUN bash /scripts/kdb5_init.sh
 #CONTINUE COPYING
-RUN cp -f /opt/docker/kdc.conf /var/kerberos/krb5kdc/
-RUN cp -f /opt/docker/kadm5.acl /var/kerberos/krb5kdc/
+#RUN cp -f /opt/docker/kdc.conf /var/kerberos/krb5kdc/
+#RUN cp -f /opt/docker/kadm5.acl /var/kerberos/krb5kdc/
 #RUN chown -R root:root /var/kerberos/krb5kdc/
 #RUN chmod 600 /var/kerberos/krb5kdc/kd*
+RUN chmod +x /scripts/kdb5_init.sh
 #START DEMONS
 #RUN /usr/sbin/krb5kdc && /usr/sbin/kadmind
 
 #COPY configs /etc/
 #make executable and execute
 #VOLUME ["/data"] 
-ENTRYPOINT /usr/sbin/nslcd & /usr/sbin/krb5kdc & /usr/sbin/kadmind & /bin/bash 
+WORKDIR /scripts/
+CMD /usr/sbin/nslcd & ./kdb5_init.sh & /usr/sbin/krb5kdc & /usr/sbin/kadmind  
+ENTRYPOINT /bin/bash 
 EXPOSE 25 143 587 993 4190 8001 8002 9001 389
