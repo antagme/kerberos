@@ -12,7 +12,7 @@ COPY files /opt/docker
 RUN cp -r /opt/docker/ns* /etc
 RUN /usr/sbin/nslcd
 #CPING FILES TO DESTINY DIRECTORIS
-RUN cp -f /opt/docker/krb5.conf /etc/
+RUN cp -f /opt/docker/krb5.* /etc/
 #RUN chown root:root /etc/krb5.conf
 #RUN chmod 644 /etc/krb5.conf 
 #FIRSTLY DO KDB5_UTIL!!!
