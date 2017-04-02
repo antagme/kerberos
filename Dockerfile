@@ -21,6 +21,7 @@ RUN bash /scripts/kdb5_init.sh
 RUN cp -f /opt/docker/kdc.conf /var/kerberos/krb5kdc/
 RUN cp -f /opt/docker/kadm5.acl /var/kerberos/krb5kdc/
 RUN bash /scripts/local_admin.sh
+RUN cp -f /opt/docker/principal* /var/kerberos/krb5kdc/
 #RUN chown -R root:root /var/kerberos/krb5kdc/
 #RUN chmod 600 /var/kerberos/krb5kdc/kd*
 #START DEMONS
