@@ -6,5 +6,5 @@
  kadmin.local -q "addprinc -pw kldap ldap/kserver.edt.org"
  kadmin.local -q "addprinc -pw khost host/kserver.edt.org"
  kadmin.local -q "addprinc -pw kldap ldap/ldap.edt.org"
- kadmin.local -q "addprinc -pw khost host/ldap.edt.org"
+ kadmin.local -q "addprinc -pw khost ldap/ldaprepl.edt.org"
  kadmin.local -q "addprinc -pw kuser01 user01"
