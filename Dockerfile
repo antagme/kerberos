@@ -1,5 +1,5 @@
 FROM fedora
-MAINTAINER "Pedro Romero Aguado" <pedroromeroaguado@gmail.com> 
+MAINTAINER "Antonia Aguado Mercado" <nomail@gmail.com> 
 
 #installs
 RUN dnf install -y krb5-server krb5-workstation nss-pam-ldapd ; exit 0
