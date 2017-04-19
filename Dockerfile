@@ -2,7 +2,7 @@ FROM fedora
 MAINTAINER "Antonia Aguado Mercado" <nomail@gmail.com> 
 
 #installs
-RUN dnf install -y krb5-server krb5-workstation nss-pam-ldapd supervisor procps; exit 0
+RUN dnf install -y krb5-server krb5-workstation nss-pam-ldapd supervisor procps zabbix-agent; exit 0
 # directoris
 RUN mkdir /opt/docker
 #Copy github to dockerhub build
