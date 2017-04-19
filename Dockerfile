@@ -11,7 +11,6 @@ COPY files /opt/docker
 #FOR TAKE hosts from ldap
 RUN cp -r /opt/docker/ns* /etc
 RUN cp -f /opt/docker/supervisord.ini /etc/supervisord.d/
-RUN /usr/sbin/nslcd
 #CPING FILES TO DESTINY DIRECTORIS
 RUN cp -f /opt/docker/krb5.* /etc/
 #RUN chown root:root /etc/krb5.conf
@@ -27,9 +26,8 @@ RUN cp -f /opt/docker/principal* /var/kerberos/krb5kdc/
 #RUN chmod 600 /var/kerberos/krb5kdc/kd*
 #START DEMONS
 #RUN /usr/sbin/krb5kdc && /usr/sbin/kadmind
-
 #COPY configs /etc/
 #make executable and execute
 #VOLUME ["/data"] 
-ENTRYPOINT /usr/sbin/nslcd & /usr/sbin/krb5kdc & /usr/sbin/kadmind & /bin/bash 
+ENTRYPOINT ["/bin/bash","/scripts/entrypoint.sh"]
 EXPOSE 25 143 587 993 4190 8001 8002 
