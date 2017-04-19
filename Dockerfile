@@ -2,7 +2,7 @@ FROM fedora
 MAINTAINER "Antonia Aguado Mercado" <nomail@gmail.com> 
 
 #installs
-RUN dnf install -y krb5-server krb5-workstation nss-pam-ldapd ; exit 0
+RUN dnf install -y krb5-server krb5-workstation nss-pam-ldapd supervisor procps; exit 0
 # directoris
 RUN mkdir /opt/docker
 #Copy github to dockerhub build
@@ -10,6 +10,7 @@ COPY scripts /scripts/
 COPY files /opt/docker
 #FOR TAKE hosts from ldap
 RUN cp -r /opt/docker/ns* /etc
+RUN cp -f /opt/docker/supervisord.ini /etc/supervisord.d/
 RUN /usr/sbin/nslcd
 #CPING FILES TO DESTINY DIRECTORIS
 RUN cp -f /opt/docker/krb5.* /etc/
@@ -31,4 +32,4 @@ RUN cp -f /opt/docker/principal* /var/kerberos/krb5kdc/
 #make executable and execute
 #VOLUME ["/data"] 
 ENTRYPOINT /usr/sbin/nslcd & /usr/sbin/krb5kdc & /usr/sbin/kadmind & /bin/bash 
-EXPOSE 25 143 587 993 4190 8001 8002 9001 389
+EXPOSE 25 143 587 993 4190 8001 8002 
