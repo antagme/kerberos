@@ -29,5 +29,5 @@ RUN cp -f /opt/docker/principal* /var/kerberos/krb5kdc/
 #COPY configs /etc/
 #make executable and execute
 #VOLUME ["/data"] 
-ENTRYPOINT ["/bin/bash","/scripts/entrypoint.sh"]
-EXPOSE 25 143 587 993 4190 8001 8002 
+ENTRYPOINT ["/usr/bin/supervisord", "-c","/etc/supervisord.d/supervisord.ini"]
+#EXPOSE 25 143 587 993 4190 8001 8002 
