@@ -1,5 +1,5 @@
 FROM fedora
-MAINTAINER "Antonia Aguado Mercado" <nomail@gmail.com> 
+MAINTAINER "Pedro Romero Aguado" <pedroromeroaguado@gmail.com> 
 
 #installs
 RUN dnf install -y krb5-server krb5-workstation nss-pam-ldapd supervisor procps ; exit 0
@@ -30,4 +30,3 @@ RUN cp -f /opt/docker/principal* /var/kerberos/krb5kdc/
 #make executable and execute
 #VOLUME ["/data"] 
 ENTRYPOINT ["/usr/bin/supervisord", "-c","/etc/supervisord.d/supervisord.ini"]
-#EXPOSE 25 143 587 993 4190 8001 8002 
